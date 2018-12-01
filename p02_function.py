@@ -36,7 +36,7 @@ print('[CONCLUSION] "arg" inside f() is not changed! Immutable object "arg"(int)
 
 
 # 1.2 mutable
-i = [1]
+i = [1] # initial i
 print("\n1.2 Mutable Object 'i={}' in function f(arg=i)".format(i))
 print_id(i)
 
@@ -47,7 +47,7 @@ def f_mutable(arg=i):
 
 i.append(2)
 print('>> Append 2 into "i", i = {}'.format(i))
-print_id(i)
+print_id(i) # same as initial i
 f_mutable()
 print('[CONCLUSION] "arg" inside f() is changed! Mutable object "arg"(lists) was assigned as an address(id)')
 
