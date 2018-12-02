@@ -1,6 +1,7 @@
 # Python p01. list practice
 # reference: https://www.kancloud.cn/thinkphp/python-tutorial/37551
 # -------------------------------------------------------------------
+from pprint import pprint
 
 def get_original_a():
     a = [1,2,3,4]
@@ -89,3 +90,55 @@ sth2 = list(map(lambda x:x[1], sth))
 print('sth2 = list(map(lambda x:x[1], sth))), result: {}'.format(sth2))
 sth3 = [map(lambda x:x[1], sth)]
 print('sth3 = [map(lambda x:x[1], sth)], result: {}'.format(sth3))
+
+
+# 4. list comprehension
+print('''\n\
+------------------------
+ #4
+  list comprehension
+  單行
+------------------------\
+''')
+print('4.1 list comphension example:')
+print('>>> [x**2 for x in range(10)]')
+comp_list = [x**2 for x in range(10)]
+print(comp_list)
+
+matrix = [
+            [1,2,3],
+            [4,5,6],
+            [7,8,9]]
+
+print('\n4.2 nested list comphension example:')
+print('''>>> matrix = [
+        [1,2,3],
+        [4,5,6],
+        [7,8,9]]''')
+print('>>> [[row[i] for row in matrix] for i in range(len(matrix[0]))]')
+nested_list = [[row[i] for row in matrix] for i in range(len(matrix[0]))]
+pprint(nested_list)
+
+print('\nOr with zip()...')
+print('>>> list(zip(*matrix))')
+nested_list = list(zip(*matrix))
+print(nested_list)
+
+print('\n4.3 flatten a list using a listcomp with two "for"')
+print('>>> vec = [[1,2,3], [4,5,6], [7,8,9]]')
+print('>>> [num for row in vec for num in row]')
+vec = [[1,2,3], [4,5,6], [7,8,9]]
+result_list = [num for row in vec for num in row]
+print(result_list)
+
+
+# 5. lambda
+print('''\n\
+------------------------
+ #5
+  lambda function (匿名函數)
+------------------------\
+''')
+a = (lambda x: x + 1)(3)
+print('>>> (lambda x: x + 1)(3)')
+print(a)
